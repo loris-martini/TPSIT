@@ -1,4 +1,4 @@
-package GestioneConcerto;
+package GestioneConcerto.GestioneConcerto;
 
 public class MainGestioneConcerto {
 

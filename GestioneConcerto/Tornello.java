@@ -1,4 +1,4 @@
-package GestioneConcerto;
+package GestioneConcerto.GestioneConcerto;
 
 import java.util.concurrent.Semaphore;
 

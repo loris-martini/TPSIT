@@ -1,4 +1,4 @@
-package GestioneConcerto;
+package GestioneConcerto.GestioneConcerto;
 
 class Stadio {
     private Tornello[] tornelli;
