@@ -1,0 +1,104 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+    int m;
+    
+    // Chiedi all'utente di inserire un numero intero positivo m
+    printf("Inserisci un numero intero positivo m: ");
+    scanf("%d", &m);
+
+    // Verifica che m sia positivo
+    if (m <= 0) {
+        printf("Devi inserire un numero intero positivo.\n");
+        return 1; // Uscita con errore
+    }
+
+    // Alloca dinamicamente un array di m float utilizzando calloc
+    float *temperatures = (float *)calloc(m, sizeof(float));
+
+    // Verifica se l'allocazione di memoria è riuscita
+    if (temperatures == NULL) {
+        printf("Errore nell'allocazione di memoria.\n");
+        return 1; // Uscita con errore
+    }
+
+    // Chiedi all'utente di inserire le temperature giornaliere per m giorni
+    printf("Inserisci le temperature giornaliere per %d giorni:\n", m);
+    for (int i = 0; i < m; i++) {
+        scanf("%f", &temperatures[i]);
+    }
+
+    // Calcola la temperatura massima, minima e media
+    float max_temp = temperatures[0];
+    float min_temp = temperatures[0];
+    float sum = 0.0;
+    
+    for (int i = 0; i < m; i++) {
+        if (temperatures[i] > max_temp) {
+            max_temp = temperatures[i];
+        }
+        if (temperatures[i] < min_temp) {
+            min_temp = temperatures[i];
+        }
+        sum += temperatures[i];
+    }
+    
+    float average_temp = sum / m;
+
+    // Stampa i risultati
+    printf("Temperatura massima: %.2f\n", max_temp);
+    printf("Temperatura minima: %.2f\n", min_temp);
+    printf("Temperatura media: %.2f\n", average_temp);
+
+    // Libera la memoria allocata dinamicamente
+    free(temperatures);
+
+    return 0; // Uscita senza errori
+}
+Esercizio 3: Array dinamico di interi
+
+c
+Copy code
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+    int *array = NULL; // Puntatore all'array dinamico
+    int size = 0; // Dimensione attuale dell'array
+    int num;
+
+    printf("Inserisci un numero intero (inserisci un valore negativo per terminare): ");
+
+    while (1) {
+        scanf("%d", &num);
+
+        if (num < 0) {
+            break; // Uscita dal ciclo se viene inserito un valore negativo
+        }
+
+        // Aumenta la dimensione dell'array utilizzando realloc
+        size++;
+        array = (int *)realloc(array, size * sizeof(int));
+
+        // Verifica se l'allocazione di memoria è riuscita
+        if (array == NULL) {
+            printf("Errore nell'allocazione di memoria.\n");
+            return 1; // Uscita con errore
+        }
+
+        // Memorizza il numero nell'array
+        array[size - 1] = num;
+
+        printf("Inserisci un altro numero (inserisci un valore negativo per terminare): ");
+    }
+
+    // Stampa tutti i numeri inseriti a schermo
+    printf("Numeri inseriti: ");
+    for (int i = 0; i < size; i++) {
+        printf("%d ", array[i]);
+    }
+    printf("\n");
+
+    // Lib
+

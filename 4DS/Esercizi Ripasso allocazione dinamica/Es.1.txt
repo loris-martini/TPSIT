@@ -1,0 +1,43 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+    int n;
+
+    // Chiedi all'utente di inserire un numero intero positivo n
+    printf("Inserisci un numero intero positivo n: ");
+    scanf("%d", &n);
+
+    // Verifica che n sia positivo
+    if (n <= 0) {
+        printf("Devi inserire un numero intero positivo.\n");
+        return 1; // Uscita con errore
+    }
+
+    // Alloca dinamicamente un array di n interi
+    int *array = (int *)malloc(n * sizeof(int));
+
+    // Verifica se l'allocazione di memoria è riuscita
+    if (array == NULL) {
+        printf("Errore nell'allocazione di memoria.\n");
+        return 1; // Uscita con errore
+    }
+
+    // Chiedi all'utente di inserire n numeri e memorizzali nell'array
+    printf("Inserisci %d numeri:\n", n);
+    for (int i = 0; i < n; i++) {
+        scanf("%d", &array[i]);
+    }
+
+    // Stampa i numeri inseriti a schermo
+    printf("Numeri inseriti: ");
+    for (int i = 0; i < n; i++) {
+        printf("%d ", array[i]);
+    }
+    printf("\n");
+
+    // Libera la memoria allocata dinamicamente
+    free(array);
+
+    return 0; // Uscita senza errori
+}
