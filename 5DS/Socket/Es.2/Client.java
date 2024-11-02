@@ -35,6 +35,8 @@ public class Client {
             ris = d.readUTF();
             System.out.println(ris);
 
+            s.close();
+
         }catch(Exception e){
             System.out.println(e);
         }
