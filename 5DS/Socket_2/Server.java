@@ -19,8 +19,8 @@ public class Server {
             System.out.println("SERVER partito");
             server = new ServerSocket(6789);
             client = server.accept();
-            System.out.println("CLIENT CONNESSO \n");
             server.close();
+            System.out.println("CLIENT CONNESSO \n");
             dalClient = new DataInputStream(client.getInputStream());
             versoClient = new DataOutputStream(client.getOutputStream());
         } catch (Exception e) {
