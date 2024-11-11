@@ -1,0 +1,45 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+    int *array = NULL; // Puntatore all'array dinamico
+    int size = 0; // Dimensione attuale dell'array
+    int num;
+
+    printf("Inserisci un numero intero (inserisci un valore negativo per terminare): ");
+
+    while (1) {
+        scanf("%d", &num);
+
+        if (num < 0) {
+            break; // Uscita dal ciclo se viene inserito un valore negativo
+        }
+
+        // Aumenta la dimensione dell'array utilizzando realloc
+        size++;
+        array = (int *)realloc(array, size * sizeof(int));
+
+        // Verifica se l'allocazione di memoria è riuscita
+        if (array == NULL) {
+            printf("Errore nell'allocazione di memoria.\n");
+            return 1; // Uscita con errore
+        }
+
+        // Memorizza il numero nell'array
+        array[size - 1] = num;
+
+        printf("Inserisci un altro numero (inserisci un valore negativo per terminare): ");
+    }
+
+    // Stampa tutti i numeri inseriti a schermo
+    printf("Numeri inseriti: ");
+    for (int i = 0; i < size; i++) {
+        printf("%d ", array[i]);
+    }
+    printf("\n");
+
+    // Libera la memoria allocata dinamicamente
+    free(array);
+
+    return 0; // Uscita senza errori
+}
