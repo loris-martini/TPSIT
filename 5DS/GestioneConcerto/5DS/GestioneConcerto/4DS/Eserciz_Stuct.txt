@@ -1,0 +1,138 @@
+#include <stdio.h>
+#include <string.h>
+
+//Esercizio 2
+//Definire la struttura automobili che descrive un’automobile in base alla marca, cilindrata, anno di immatricolazione e acquirente (con nome e cognome). Scrivere quindi un programma in C, che dichiara una tabella autosalone di tipo automobili con 5 elementi. Il programma deve consentire di inserire i dati delle auto vendute e di visualizzare le marche delle auto, secondo una ricerca. Inoltre deve visualizzare il cognome dei proprietari con auto che hanno una cilindrata superiore a 1800 cc. Infine occorre visualizzare il numero di auto immatricolate in un determinato anno.
+/*
+int main(){
+  struct Automobile {
+    char marca[50];
+    int cilindrata;
+    int annoImmatricolazione;
+    char acquirente[50];
+  };
+  
+  struct Automobile autosalone[5];
+  int numeroAutoImmatricolateAnno = 0;
+  int i;
+
+  for (i = 0; i < 5; ++i) {
+    printf("Inserisci la marca dell'auto %d: ", i + 1);
+    scanf("%s", autosalone[i].marca);
+    printf("Inserisci la cilindrata dell'auto %d: ", i + 1);
+    scanf("%d", &autosalone[i].cilindrata);
+    printf("Inserisci l'anno di immatricolazione dell'auto %d: ", i + 1);
+    scanf("%d", &autosalone[i].annoImmatricolazione);
+    printf("Inserisci il nome e cognome dell'acquirente dell'auto %d: ", i + 1);
+    scanf("%s", autosalone[i].acquirente);
+
+    if (autosalone[i].annoImmatricolazione == 2023) {
+      numeroAutoImmatricolateAnno++;
+    }
+  }
+
+  printf("\nElenco delle marche delle auto:\n");
+  for (i = 0; i < 5; ++i) {
+    printf("%s\n", autosalone[i].marca);
+  }
+
+  printf("\nCognomi dei proprietari delle auto con cilindrata superiore a 1800 cc:\n");
+  for (i = 0; i < 5; ++i) {
+    if (autosalone[i].cilindrata > 1800) {
+      printf("%s\n", autosalone[i].acquirente);
+    }
+  }
+
+  printf("\nNumero di auto immatricolate nel 2023: %d\n", numeroAutoImmatricolateAnno);
+  return 0;
+}
+*/
+
+//Esercizio 3
+//Definire la struttura libro contenente titolo, autore e isbn. Creare due libri inserendo staticamente le informazioni della struttura precedentemente creata con l’uso della funzione strcpy(). Scrivi una funzione di stampa per poter visualizzare in console il risultato.
+/*
+struct Libro {
+  char titolo[100];
+  char autore[50];
+  char isbn[20];
+  };
+
+void stampaLibro(struct Libro libro) {
+  printf("Titolo: %s\n", libro.titolo);
+  printf("Autore: %s\n", libro.autore);
+  printf("ISBN: %s\n", libro.isbn);
+}
+
+int main(){
+  struct Libro libro1, libro2;
+
+  strcpy(libro1.titolo, "Libro 1");
+  strcpy(libro1.autore, "Autore 1");
+  strcpy(libro1.isbn, "123456789");
+
+  strcpy(libro2.titolo, "Libro 2");
+  strcpy(libro2.autore, "Autore 2");
+  strcpy(libro2.isbn, "987654321");
+
+  printf("Informazioni del primo libro:\n");
+  stampaLibro(libro1);
+
+  printf("\nInformazioni del secondo libro:\n");
+  stampaLibro(libro2);
+  return 0;
+}
+*/
+
+//Esercizio 4
+//Definire la struttura di una Squadra che descrive una squadra di calcio con il proprio allenatore. Ogni squadra è identificata da un nome, dal colore della maglia, dal punteggio raggiunto e dal proprio allenatore. Per ciascun allenatore specifichiamo i campi nome, cognome e il numero dei titoli vinti. Scrivere quindi un programma in C che, dichiarata una tabella Fantacalcio di tipo Squadra con al massimo 10 elementi, permetta di inserire i dati delle squadre e degli allenatori. Visualizzare poi il cognome e il nome degli allenatori che hanno più di 10 punti in classifica. Visualizzare inoltre il numero totale di allenatori che hanno vinto almeno un titolo.
+/*
+int main() {
+  struct Allenatore {
+    char nome[50];
+    char cognome[50];
+    int titoliVinti;
+  };
+
+  struct Squadra {
+    char nomeSquadra[50];
+    char coloreMaglia[20];
+    int punteggio;
+    struct Allenatore allenatore;
+  };
+  
+  struct Squadra fantacalcio[10];
+  int numSquadre, i, countAllenatoriConPunteggioSuperiore10 = 0, countAllenatoriConTitoli = 0;
+
+  printf("Inserisci il numero di squadre nel Fantacalcio (max 10): ");
+  scanf("%d", &numSquadre);
+
+  if (numSquadre > 10) {
+    printf("Numero di squadre superiore al massimo consentito (10).\n");
+    return 1;
+  }
+
+  for (i = 0; i < numSquadre; ++i) {
+    printf("Inserisci il nome della squadra %d: ", i + 1);
+    scanf("%s", fantacalcio[i].nomeSquadra);
+    printf("Inserisci il colore della maglia della squadra %d: ", i + 1);
+    scanf("%s", fantacalcio[i].coloreMaglia);
+    printf("Inserisci il punteggio della squadra %d: ", i + 1);
+    scanf("%d", &fantacalcio[i].punteggio);
+    printf("Inserisci il nome e cognome dell'allenatore della squadra %d: ", i + 1);
+    scanf("%s %s", fantacalcio[i].allenatore.nome, fantacalcio[i].allenatore.cognome);
+
+    if (fantacalcio[i].punteggio > 10) {
+      printf("Allenatore con punteggio superiore a 10: %s %s\n", fantacalcio[i].allenatore.cognome, fantacalcio[i].allenatore.nome);
+      countAllenatoriConPunteggioSuperiore10++;
+    }
+  
+    if (fantacalcio[i].allenatore.titoliVinti > 0) {
+      countAllenatoriConTitoli++;
+    }
+  }
+
+  printf("\nNumero totale di allenatori con punteggio superiore a 10: %d\n", countAllenatoriConPunteggioSuperiore10);
+  printf("Numero totale di allenatori che hanno vinto almeno un titolo: %d\n", countAllenatoriConTitoli);
+  return 0;
+}
+*/

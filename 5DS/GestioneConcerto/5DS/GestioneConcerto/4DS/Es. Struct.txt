@@ -1,0 +1,229 @@
+#include <stdio.h>
+/*Definisci due struct, una per le informazioni personali degli studenti
+(nome, cognome, età) e un altra per le informazioni accademiche (corso
+di studio, media dei voti). Crea una terza struct che combini entrambe le
+struct e rappresenti un profilo completo di uno studente. Crea un array
+di strutture studente e chiedi all utente di inserire le informazioni su più
+studenti. Quindi, stampa le informazioni di tutti gli studenti.*/
+/*
+struct Persona{
+  char nome[50];
+  char cognome[50];
+  int eta;
+};
+
+
+struct Accademia{
+  char corso[50];
+  float mediaVoti;
+};
+
+struct Studente{
+  struct Persona persona;
+  struct Accademia accademia;
+};
+
+
+int main(void) {
+  struct Studente studenti[2];
+  for(int i=0; i<2; i++){
+    printf("Nome: ");
+    scanf("%s", studenti[i].persona.nome);
+    printf("Cognome: ");
+    scanf("%s", studenti[i].persona.cognome);
+    printf("Eta: ");
+    scanf("%d", &studenti[i].persona.eta);
+  }
+
+  for(int i=0; i<2; i++){
+    printf("Nome: %s\n", studenti[i].persona.nome);
+    printf("Cognome: %s\n", studenti[i].persona.cognome);
+    printf("Eta: %d\n", studenti[i].persona.eta);
+  }
+
+
+  return 0;
+}
+*//*
+Definisci tre struct: una per le informazioni sull azienda (nome, indirizzo,
+settore), una per le informazioni sui dipendenti (nome, cognome,
+posizione) e una per le informazioni finanziarie (fatturato annuale,
+numero di dipendenti). Crea una quarta struct che rappresenti una
+singola entità aziendale completa, combinando tutte e tre le struct.
+Chiedi all utente di inserire le informazioni su diverse aziende e stampa
+i dettagli di ciascuna azienda.
+
+// Struct per le informazioni sull'azienda
+struct AziendaInfo {
+    char nome[100];
+    char indirizzo[200];
+    char settore[50];
+};
+
+// Struct per le informazioni sui dipendenti
+struct DipendenteInfo {
+    char nome[50];
+    char cognome[50];
+    char posizione[50];
+};
+
+// Struct per le informazioni finanziarie
+struct FinanziarioInfo {
+    double fatturatoAnnuale;
+    int numeroDipendenti;
+};
+
+// Struct che rappresenta un'entità aziendale completa
+struct Azienda {
+    struct AziendaInfo infoAzienda;
+    struct DipendenteInfo infoDipendenti;
+    struct FinanziarioInfo infoFinanziarie;
+};
+
+int main() {
+    int numAziende;
+
+    printf("Inserisci il numero di aziende: ");
+    scanf("%d", &numAziende);
+
+    // Dichiarare un array di strutture Azienda per memorizzare le informazioni su più aziende
+    struct Azienda aziende[numAziende];
+
+    for (int i = 0; i < numAziende; i++) {
+        printf("Azienda %d:\n", i + 1);
+
+        printf("Nome: ");
+        scanf("%s", aziende[i].infoAzienda.nome);
+
+        printf("Indirizzo: ");
+        scanf("%s", aziende[i].infoAzienda.indirizzo);
+
+        printf("Settore: ");
+        scanf("%s", aziende[i].infoAzienda.settore);
+
+        printf("Nome Dipendente: ");
+        scanf("%s", aziende[i].infoDipendenti.nome);
+
+        printf("Cognome Dipendente: ");
+        scanf("%s", aziende[i].infoDipendenti.cognome);
+
+        printf("Posizione Dipendente: ");
+        scanf("%s", aziende[i].infoDipendenti.posizione);
+
+        printf("Fatturato Annuale: ");
+        scanf("%lf", &aziende[i].infoFinanziarie.fatturatoAnnuale);
+
+        printf("Numero di Dipendenti: ");
+        scanf("%d", &aziende[i].infoFinanziarie.numeroDipendenti);
+    }
+
+    // Stampare i dettagli di ciascuna azienda
+    for (int i = 0; i < numAziende; i++) {
+        printf("\nDettagli Azienda %d:\n", i + 1);
+        printf("Nome: %s\n", aziende[i].infoAzienda.nome);
+        printf("Indirizzo: %s\n", aziende[i].infoAzienda.indirizzo);
+        printf("Settore: %s\n", aziende[i].infoAzienda.settore);
+        printf("Nome Dipendente: %s\n", aziende[i].infoDipendenti.nome);
+        printf("Cognome Dipendente: %s\n", aziende[i].infoDipendenti.cognome);
+        printf("Posizione Dipendente: %s\n", aziende[i].infoDipendenti.posizione);
+        printf("Fatturato Annuale: %.2lf\n", aziende[i].infoFinanziarie.fatturatoAnnuale);
+        printf("Numero di Dipendenti: %d\n", aziende[i].infoFinanziarie.numeroDipendenti);
+    }
+
+    return 0;
+}*/
+
+/*Definisci tre struct: una per le informazioni sul prodotto (nome, prezzo,
+codice SKU), una per le informazioni sul cliente (nome, indirizzo,
+numero di telefono) e un&#39;altra per le informazioni sull&#39;ordine (data
+dell&#39;ordine, numero dell&#39;ordine, quantità del prodotto). Crea una quarta
+struct che combini queste tre struct e rappresenti un singolo ordine di
+prodotto completo.*/
+
+/*
+// Struct per le informazioni sull'azienda
+struct ProdottoInfo {
+    char nome[100];
+    int prezzo;
+    char sku[100];
+};
+
+// Struct per le informazioni sui dipendenti
+struct ClientInfo {
+    char nome[50];
+    char indirizzo[50];
+    char numTel[10];
+};
+
+// Struct per le informazioni finanziarie
+struct OrdineInfo {
+    int gg;
+    int mm;
+    int aaaa;
+    int num;
+    int qq;
+};
+
+// Struct che rappresenta un'entità aziendale completa
+struct ProdottoCompleto {
+    struct ProdottoInfo infoProdotto;
+    struct ClientInfo infoCliente;
+    struct OrdineInfo infoOrdine;
+};
+
+int main() {
+  int numProdotto;
+
+    printf("Inserisci il numero di prodotti: ");
+    scanf("%d", &numProdotto);
+
+    // Dichiarare un array di strutture Azienda per memorizzare le informazioni su più aziende
+    struct ProdottoCompleto aziende[numProdotto];
+
+    for (int i = 0; i < numProdotto; i++) {
+        printf("Prodotto %d:\n", i + 1);
+
+        printf("Nome: ");
+        scanf("%s", aziende[i].infoProdotto.nome);
+
+        printf("Prezzo: ");
+        scanf("%d", &aziende[i].infoProdotto.prezzo);
+
+        printf("SKU: ");
+        scanf("%s", aziende[i].infoProdotto.sku);
+
+        printf("Nome Cliente: ");
+        scanf("%s", aziende[i].infoCliente.nome);
+
+        printf("Indirizzo Cliente: ");
+        scanf("%s", aziende[i].infoCliente.indirizzo);
+
+        printf("Telefono Cliente: ");
+        scanf("%s", aziende[i].infoCliente.numTel);
+
+        printf("Data: \nGiorno:");
+        scanf("%d", &aziende[i].infoOrdine.gg);
+        printf("Mese: ");
+        scanf("%d", &aziende[i].infoOrdine.mm);
+        printf("Anno: ");
+        scanf("%d", &aziende[i].infoOrdine.aaaa);
+
+        printf("Quantità: ");
+        scanf("%d", &aziende[i].infoOrdine.qq); 
+    }
+
+    // Stampare i dettagli di ciascuna azienda
+    for (int i = 0; i < numProdotto; i++) {
+        printf("\nDettagli Azienda %d:\n", i + 1);
+        printf("Nome: %s\n", aziende[i].infoProdotto.nome);
+        printf("Prezzo: %d\n", aziende[i].infoProdotto.prezzo);
+        printf("SKU: %s\n", aziende[i].infoProdotto.sku);
+        printf("Nome Cliente: %s\n", aziende[i].infoCliente.nome);
+        printf("Indirizzo Cliente: %s\n", aziende[i].infoCliente.indirizzo);
+        printf("Telefono Cliente: %s\n", aziende[i].infoCliente.numTel);
+        printf("Data: %d / %d / %d\n", aziende[i].infoOrdine.gg, aziende[i].infoOrdine.mm, aziende[i].infoOrdine.aaaa);
+        printf("Quantità: %d\n", aziende[i].infoOrdine.qq);
+    }
+  
+    return 0;
+}*/

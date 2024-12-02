@@ -1,0 +1,9 @@
+# depslib dependency file v1.0
+1678109678 source:w:\3ds\tipsit\c\prova\main.c
+	<stdio.h>
+	<stdlib.h>
+
+1678110258 source:w:\3ds\tipsit\c\prova\pirmoesercizzio_b.c
+	<stdio.h>
+	<stdlib.h>
+
