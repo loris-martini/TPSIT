@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="4.0" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd">
+    
+    <!-- Definizione della servlet ToDoServlet -->
+    <servlet>
+        <servlet-name>ToDoServlet</servlet-name>
+        <servlet-class>Servlet.ToDoServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ToDoServlet</servlet-name>
+        <url-pattern>/ToDoServlet</url-pattern>
+    </servlet-mapping>
+
+    <!-- Definizione della servlet ViewToDoServlet -->
+    <servlet>
+        <servlet-name>ViewToDoServlet</servlet-name>
+        <servlet-class>Servlet.ViewToDoServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ViewToDoServlet</servlet-name>
+        <url-pattern>/ViewToDoServlet</url-pattern>
+    </servlet-mapping>
+
+    <!-- Definizione della servlet DeleteToDoServlet -->
+    <servlet>
+        <servlet-name>DeleteToDoServlet</servlet-name>
+        <servlet-class>Servlet.DeleteToDoServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DeleteToDoServlet</servlet-name>
+        <url-pattern>/DeleteToDoServlet</url-pattern>
+    </servlet-mapping>
+    
+    <!-- Configurazione della sessione -->
+    <session-config>
+        <session-timeout>
+            30
+        </session-timeout>
+    </session-config>
+</web-app>

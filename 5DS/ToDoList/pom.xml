@@ -1,0 +1,57 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    
+    <!-- Identificatori univoci del progetto -->
+    <groupId>com.mycompany</groupId>
+    <artifactId>ToDoList</artifactId>
+    <version>1</version>
+    <packaging>war</packaging>
+    <name>ToDoList</name>
+    
+    <!-- Configurazioni per il compilatore -->
+    <properties>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <failOnMissingWebXml>false</failOnMissingWebXml> <!-- Permette di evitare errori se manca web.xml -->
+    </properties>
+
+    <!-- Dipendenze necessarie per il progetto -->
+    <dependencies>
+        <!-- Dipendenza per Servlet 3.1 (completamente compatibile con Tomcat 8.5) -->
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>3.1.0</version>
+            <scope>provided</scope>
+        </dependency>
+    </dependencies>
+
+    <!-- Configurazioni di build e plugin -->
+    <build>
+        <plugins>
+            <!-- Plugin di compilazione per Java 8 -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.1</version>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
+            </plugin>
+
+            <!-- Plugin di creazione del file WAR -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>3.3.2</version> <!-- Versione aggiornata -->
+                <configuration>
+                    <failOnMissingWebXml>false</failOnMissingWebXml> <!-- Consente di non avere il file web.xml se si usano annotazioni -->
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
